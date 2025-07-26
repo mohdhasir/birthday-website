@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Happy Birthday</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="config.js"></script>
+</head>
+<body>
+  <header>
+    <h1>🎂 Happy Birthday 🎂</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="story.html">Our Story</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="letter.html">Love Letter</a>
+    </nav>
+  </header>
+
+  <div class="landing">
+    <h2 id="birthday-message"></h2>
+    <p>From <span id="your-name"></span> to <span id="her-name"></span></p>
+    <div id="countdown"></div>
+  </div>
+
+  <audio id="bg-music" src="" autoplay loop muted></audio>
+  <button
+    onclick="toggleMusic()"
+    style="position: fixed; bottom: 10px; right: 10px; padding: 8px"
+  >
+    🔊 Play/Pause Music
+  </button>
+
+  <script src="script.js"></script>
+  <script>
+    document.getElementById("birthday-message").innerText = birthdayMessage;
+    document.getElementById("your-name").innerText = yourName;
+    document.getElementById("her-name").innerText = herName;
+
+    const countdownEl = document.getElementById("countdown");
+    const targetDate = new Date(birthdayDate + "T00:00:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+      if (diff <= 0) {
+        countdownEl.innerHTML = "🎉 Today is her Birthday! 🎉";
+        return;
+      }
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((diff % (1000 * 60)) / 1000);
+      countdownEl.innerHTML = `Countdown: ${d}d ${h}h ${m}m ${s}s`;
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    const bgMusic = document.getElementById("bg-music");
+    bgMusic.src = musicFile;
+    function toggleMusic() {
+      bgMusic.muted = !bgMusic.muted;
+    }
+  </script>
+</body>
+</html>

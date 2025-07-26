@@ -1,0 +1,72 @@
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Comic Sans MS', cursive; }
+
+body {
+  background: #fff0f5;
+  color: #ff3366;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background: #ffccd5;
+  padding: 15px;
+  text-align: center;
+}
+
+header h1 { font-size: 1.8em; }
+
+nav a {
+  color: #ff3366;
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+nav a:hover { color: #d6004a; }
+
+.landing {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; padding: 20px;
+}
+
+.landing h2 { font-size: 2.5em; margin-bottom: 20px; }
+
+#countdown { font-size: 1.5em; margin-top: 20px; }
+
+.timeline { padding: 20px; }
+.timeline-item {
+  background: #ffe6eb;
+  border-left: 4px solid #ff3366;
+  padding: 10px 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+}
+
+.gallery {
+  display: grid; gap: 10px; padding: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.gallery img {
+  width: 100%; border-radius: 12px; transition: transform 0.3s;
+}
+.gallery img:hover { transform: scale(1.05); }
+
+.letter {
+  padding: 20px; font-size: 1.2em; line-height: 1.6em;
+  white-space: pre-line;
+}
+
+.floating-heart {
+  position: fixed; bottom: 0; font-size: 24px;
+  animation: floatUp linear forwards;
+}
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-100vh); opacity: 0; }
+}
+
+@media(max-width: 768px){
+  .landing h2 { font-size: 2em; }
+}
