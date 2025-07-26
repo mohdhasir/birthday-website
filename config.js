@@ -1,5 +1,5 @@
 // === Customize here ===
-const herName = "Mariiyam Haseen";
+const herName = "Mariyam Haseen";
 const yourName = "Mohd Hasir";
 const birthdayMessage = "Happy Birthday, My Wifey! ❤️";
 
